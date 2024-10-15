@@ -13,16 +13,6 @@
 # Library here for relative paths creation
 
 # Optmised: Using p_load() function from pacman package to load several libraries in one go
-#library("here")
-#library("shiny")
-#library("shinydashboard")
-#library("DT")
-#library("fs")
-# library("webstats")
-#library("leaflet")
-#library("plotly")
-#library("tidyverse")
-
 # Important: This scripts runs using source_all() adhoc function from \R sub-folder
 
 # Check pacman is previouly installed to load all required libraries for this project
@@ -123,5 +113,5 @@ Dataupdate <- function(){
   }
 }
 
-# Call this function for testing
+# Call this function for testing 
 Dataupdate()
