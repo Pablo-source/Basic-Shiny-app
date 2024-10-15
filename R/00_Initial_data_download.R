@@ -15,9 +15,7 @@
 # Optmised: Using p_load() function from pacman package to load several libraries in one go
 # Important: This scripts runs using source_all() adhoc function from \R sub-folder
 
-# Check pacman is previouly installed to load all required libraries for this project
-if(!require("pacman")) install.packages("pacman")
-
+# Install all required libraries for this project using {pacman}
 # Load required libraries 
 pacman::p_load(here,shiny,shinydashboard,DT,fs,leaflet,plotly,tidyverse)
 
