@@ -1,4 +1,4 @@
-# \R\00_Initial_data_download.R
+# R Script: \R\00_Initial_data_download.R
 
 
 # Install required packages 
@@ -8,6 +8,8 @@
 #install.packages("webstats",dependencies = TRUE)
 #install.packages("leaflet",dependencies = TRUE)
 #install.packages("plotly",dependencies = TRUE)
+
+# This script runs using source_all() function from Shiny app main script.
 
 # Load required packages library(tidyverse) library(readr)
 # Library here for relative paths creation
