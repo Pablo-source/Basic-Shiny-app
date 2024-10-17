@@ -6,7 +6,7 @@ library(renv)
 # 1. Initialize my environment
 renv::init()
 
-# 2. Run all required scripts. Whilst running it I will install rqeuried packages
+# 2. Run all required scripts. Whilst running it I will install required packages
 # When creating script 00_Initial_data_download.R script
 renv::install('pacman')
 renv::install('here')
@@ -18,6 +18,8 @@ renv::install('leaflet')
 renv::install('plotly')
 renv::install('tidyverse')
 renv::install('janitor')
+# Include {WDI} package in the set of installed package in renv used in "R\02_Covid_metrics_population_rates.R" script.
+renv::install('WDI')
 
 # 3. Check status of your lockfile using renv::status() function:
 renv::status()
