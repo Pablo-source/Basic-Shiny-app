@@ -157,7 +157,7 @@ conf_rec_death_join_WIDE <- conf_rec_death_join %>%
     Recovered = ifelse(is.na(Recovered),0,Recovered)
   )
 
-# 4.2 We need to change the data structure to group Confirmed, Deaths, Recovered 
+# 4.2 We need to change the data structure to group Confirmed, Deaths, Recovered  
 #     into a single COLUMN with a variable displaying three values 
 #     We only need (Country, Lat, Long, date, Confirmed, Recovered, Deaths)
 MAPDATA_prep_long <- conf_rec_death_join_WIDE %>% 
