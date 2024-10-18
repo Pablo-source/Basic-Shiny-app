@@ -99,6 +99,17 @@
       ],
       "Hash": "f27411eb6d9c3dada5edd444b8416675"
     },
+    "WDI": {
+      "Package": "WDI",
+      "Version": "2.7.8",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "jsonlite"
+      ],
+      "Hash": "d0621c89c78e458566b28c79c3b9faab"
+    },
     "askpass": {
       "Package": "askpass",
       "Version": "1.2.1",

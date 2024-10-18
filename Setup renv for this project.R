@@ -26,4 +26,5 @@ renv::status()
 
 # 4. After we have confirmed the code works as expected, we use renv::snapshot()
 #   to record the packages and their sources in the lockfile
+# After installing {WDI} I ran again renv:snapshot()
 renv::snapshot()
