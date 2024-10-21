@@ -11,10 +11,13 @@ library(renv)
 
 # 2. Load shiny and shinydashboard libraries
 
-# Following readme file we would have loaded rqeuired packages into R after executing renv::restore() command
+# Following readme file we would have loaded required packages into R after executing renv::restore() command
 # renv::restore()
 
 
 library(shiny)
 library(shinydashboard)
 library(janitor)
+
+# 3. Source script to launch Shiny app
+source("app_launcher.R")
