@@ -361,10 +361,13 @@ missing_countries_pop_final
 rm(list=ls()[! ls() %in% c("METRICS_POP_RATES_data","missing_countries_pop_final")])
 
 # # A tibble: 0 × 1 There is no missing countries, all population figures have been included.
+
+
+## Save LEAFLET_MAPS_DATA_cleansed dataframe
+
 LEAFLET_MAPS_DATA_cleansed <- METRICS_POP_RATES_data
 
 # 3.5 COMPUTE x10,000 POPULATION RATES for each indicator
-
 
 # Confirmed cases
 METRICS_conf_DAILY <- METRICS_POP_RATES_data %>% 
@@ -479,3 +482,93 @@ METRICS_RATES_DATA_final <- METRICS_RATES_DATA_prep %>%
   )
 
 METRICS_RATES_DATA_final
+
+
+# FINAL DATASETS FOR SHINY DASHBOARD
+
+# Keep just these two data frames in our work space at the end of this script 
+# LEAFLET_MAPS_DATA : > This file includes LAT and LONG variables to be used just on the LEAFLET map 
+# METRICS_RATES_DATA : > This file does not include LAT and LONG variables, but it 
+#                   includes POPULATION RATES calculated for Confirmed, Recovered, Deaths metrics. 
+#                   Also this file includes a 7 day rolling average to plot Curves in PLOTLY charts.
+#                   For comparison across countries, we will use this rate for TABLES. 
+LEAFLET_MAPS_DATA <- LEAFLET_MAPS_DATA_cleansed
+
+METRICS_POP_RATES_DATA <-   METRICS_RATES_DATA_final
+
+rm(list=ls()[!(ls()%in%c('LEAFLET_MAPS_DATA','METRICS_POP_RATES_DATA'))])
+
+## I need to address one more issue - When working with Country names variable:
+## - Text to be written must be a length-one character vector.
+
+# 4. Perform aggregation on LEAFLET_MAPS_DATA to ensure only one row per day of data is present
+
+# 4.1 Isolate non-aggregated variables
+nrow(LEAFLET_MAPS_DATA)
+LEAFLET_MAPS_coord <-  LEAFLET_MAPS_DATA %>% 
+  select(Country,Lat,Long) %>% 
+  distinct(Country,Lat,Long)
+LEAFLET_MAPS_coord
+nrow(LEAFLET_MAPS_coord)
+
+# IMPORTANT, I NEED A UNIQUE TABLE OT Lat Long for each country, with one row of Lat Long for each country !!!
+# Issue LEAFLET_MAPS_coord INCLUDES several rows per country !!!
+
+# 4.1.1 FIXING LAT LONG VALUES:
+
+LEAFLET_MAPS_country_names  <-  LEAFLET_MAPS_DATA %>% 
+  select(Country) %>% 
+  distinct(Country)
+LEAFLET_MAPS_country_names
+write.csv(LEAFLET_MAPS_country_names,here("data","LEAFLET_country_names.csv"), row.names = TRUE)
+write.csv(LEAFLET_MAPS_country_names,here("Checks","LEAFLET_country_names.csv"), row.names = TRUE)
+
+
+# 4.2.1 Confirmed cases 
+# Input Data frame: LEAFLET_MAPS_DATA (Confirmed)
+
+# This will aggregate all Confirmed cases by day. Obtaining just one row per day
+LEAFLET_MAP_conf_DAILY <- LEAFLET_MAPS_DATA %>% 
+  select(Country,Lat,Long,date,Confirmed,year) %>% 
+  group_by(Country,date) %>%
+  summarise(Confirmed_d = sum(Confirmed))
+LEAFLET_MAP_conf_DAILY
+
+nrow(LEAFLET_MAP_conf_DAILY)
+
+# 4.2.1 Recovered cases 
+# Input Data frame: LEAFLET_MAPS_DATA (Recovered)
+LEAFLET_MAP_recovered_DAILY <- LEAFLET_MAPS_DATA %>% 
+  select(Country,Lat,Long,date,Recovered,year) %>% 
+  group_by(Country,date) %>%
+  summarise(Recovered_d = sum(Recovered))
+LEAFLET_MAP_recovered_DAILY
+
+# 4.2.1 Deaths cases 
+# Input Data frame: LEAFLET_MAPS_DATA (Deaths)
+LEAFLET_MAP_deaths_DAILY <- LEAFLET_MAPS_DATA %>% 
+  select(Country,Lat,Long,date,Deaths,year) %>% 
+  group_by(Country,date) %>%
+  summarise(Deaths_d = sum(Deaths))
+LEAFLET_MAP_deaths_DAILY
+
+# Then we merge them 
+LEAFLET_MAPS_FINAL_daily_recovered <- left_join(LEAFLET_MAP_conf_DAILY,
+                                                LEAFLET_MAP_recovered_DAILY,
+                                                by = join_by(Country,date))
+
+LEAFLET_MAPS_FINAL_daily_recovered_deaths <- left_join(LEAFLET_MAPS_FINAL_daily_recovered,
+                                                       LEAFLET_MAP_deaths_DAILY,
+                                                       by = join_by(Country,date))
+
+LEAFLET_MAPS_DATA <- LEAFLET_MAPS_FINAL_daily_recovered_deaths
+
+# 5. THEN MERGE IT WITH LAT LONG DATA 
+
+# 5.1 First we need to source "API_Obtain_countries_Lat_Long.R" script.
+
+# This should work fine !!
+source(here::here('Checks', 'API_Obtain_countries_Lat_Long.R'))
+
+## WIP
+

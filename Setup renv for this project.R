@@ -18,8 +18,12 @@ renv::install('leaflet')
 renv::install('plotly')
 renv::install('tidyverse')
 renv::install('janitor')
-# Include {WDI} package in the set of installed package in renv used in "R\02_Covid_metrics_population_rates.R" script.
+# Include {WDI} package in the set of installed packages in renv used in "R\02_Covid_metrics_population_rates.R" script.
 renv::install('WDI')
+# Include {zoo} package in the set of installed packages in renv used in "R\02_Covid_metrics_population_rates.R" script.
+renv::install('zoo')
+# Include {tidygeocoder} package in the set of installed packages in renv used in "R\02_Covid_metrics_population_rates.R" script.
+renv::install('tidygeocoder')
 
 # 3. Check status of your lockfile using renv::status() function:
 renv::status()
