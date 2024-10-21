@@ -581,7 +581,7 @@ LEAFLET_DATA_LAT_LONG <-   left_join(LEAFLET_MAPS_DATA,
 
 LEAFLET_DATA_LAT_LONG
 
-# 6 SAVE FINAL DATA FRAMES USED IN SHINY APP IN \data folder 
+# 6 SAVE FINAL DATA FRAMES USED IN SHINY APP IN \data folder  
 LEAFLET_MAPS_DATA_FINAL <- LEAFLET_DATA_LAT_LONG %>% mutate(Country_map = gsub(" ","",Country))
 METRICS_POP_RATES_DATA_FINAL <- METRICS_POP_RATES_DATA %>% mutate(Country_filter = gsub(" ","_",Country))
 
