@@ -566,9 +566,29 @@ LEAFLET_MAPS_DATA <- LEAFLET_MAPS_FINAL_daily_recovered_deaths
 # 5. THEN MERGE IT WITH LAT LONG DATA 
 
 # 5.1 First we need to source "API_Obtain_countries_Lat_Long.R" script.
-
-# This should work fine !!
 source(here::here('Checks', 'API_Obtain_countries_Lat_Long.R'))
 
-## WIP
+# 5.2 Then we merge original LEAFLET_MAPS_DATA script with "ALL_COUNTRIES_LAT_LONG.csv" file created by "API_Obtain_countries_Lat_Long.R" script
+COUNTRIES_LAT_LONG <-read.table(here("data", "ALL_COUNTRIES_LAT_LONG.csv"),header =TRUE, sep =',',stringsAsFactors =TRUE) %>% clean_names() 
+COUNTRIES_LAT_LONG
+
+COUNTRIES_LAT_LONG_merge <- COUNTRIES_LAT_LONG %>% select(Country = address,lat,long)
+
+# 5.2 Load previous LEAFLET map data frame
+LEAFLET_DATA_LAT_LONG <-   left_join(LEAFLET_MAPS_DATA,
+                                     COUNTRIES_LAT_LONG_merge,
+                                     by = join_by(Country))
+
+LEAFLET_DATA_LAT_LONG
+
+# 6 SAVE FINAL DATA FRAMES USED IN SHINY APP IN \data folder 
+LEAFLET_MAPS_DATA_FINAL <- LEAFLET_DATA_LAT_LONG %>% mutate(Country_map = gsub(" ","",Country))
+METRICS_POP_RATES_DATA_FINAL <- METRICS_POP_RATES_DATA %>% mutate(Country_filter = gsub(" ","_",Country))
+
+# Keep just final data frames in our workspace
+rm(list=ls()[!(ls()%in%c('LEAFLET_MAPS_DATA_FINAL','METRICS_POP_RATES_DATA_FINAL'))])
+
+# Save final two datasets as .csv files to \new_data sub-folder
+write.csv(LEAFLET_MAPS_DATA_FINAL,here("data","LEAFLET_MAPS_DATA.csv"), row.names = TRUE)
+write.csv(METRICS_POP_RATES_DATA_FINAL,here("data","METRICS_POP_RATES_DATA.csv"), row.names = TRUE)
 

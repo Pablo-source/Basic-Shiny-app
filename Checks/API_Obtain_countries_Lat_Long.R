@@ -17,7 +17,7 @@
 
 library(tidyverse)
 library(tidygeocoder)
-
+library(janitor)
 # 1. Example on how to use geo() function to obtain Lat and Long values Using geo_limit
 geo_limit_countries <- geo(
   c("Peru", "Egypt"),
@@ -220,7 +220,8 @@ ALL_COUNTRIES_LAT_LONG <- COUNTRIES_LAT_LONG_FINAL
 write.csv(ALL_COUNTRIES_LAT_LONG,here("data","ALL_COUNTRIES_LAT_LONG.csv"), row.names = TRUE)
 
 # Load new data created
-ALL_COUNTRIES_LAT_LONG_merge <-read.table(here("data", "ALL_COUNTRIES_LAT_LONG.csv"),header =TRUE, sep =',',stringsAsFactors =TRUE) %>% clean_names() 
+ALL_COUNTRIES_LAT_LONG_merge <-read.table(here("data", "ALL_COUNTRIES_LAT_LONG.csv"),
+                                          header =TRUE, sep =',',stringsAsFactors =TRUE) %>% clean_names() 
 ALL_COUNTRIES_LAT_LONG_merge
 
 
