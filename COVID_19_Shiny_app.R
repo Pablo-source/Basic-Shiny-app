@@ -13,27 +13,6 @@ library(tidyverse)
 library(leaflet)
 library(plotly)
 
-## 1. Helper function
-#  Source all required R scripts to download COVID data, create new fields for rates calculations
-#  This is an ad hoc function that SOURCES all scripts from \R folder
-
-files <- list.files(here::here("R"),
-                    full.names = TRUE,
-                    pattern = "R$")
-
-source_all <-function(path = "R"){
-  files <- list.files(here::here(path),
-                      full.names = TRUE,
-                      pattern = "R$")
-  suppressMessages(lapply(files,source))
-  invisible(path)
-}
-
-# Call helper function source_all() to run all R scripts from R folder
-# This creates required dataframes to populate the Shiny App
-source_all()
-
-
 ## 2.SHINY APP
 # In this app, UI and SERVER scripts are both included on the same script "COVID_19_Shiny_app.R" to ease automation
 
@@ -495,7 +474,8 @@ server <- function(input,output) {
       data_deathpl <- data_deathpl[metric_rates$country == input$country,] 
     }
     # Confirmed cases PLOTLY line chart
-    plot_ly(data_deathpl, x = ~date, y = ~deaths_7Days_moving_avg, type = 'scatter', mode = 'lines', color = 'orange')%>%
+    plot_ly(data_deathpl, x = ~date, y = ~deaths_7Days_moving_avg, 
+            type = 'scatter', mode = 'lines', color = 'orange')%>%
       layout(title="Deaths")
     
     
