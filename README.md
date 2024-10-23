@@ -67,3 +67,17 @@ Front end:
 - Re-designing Shiny app into a single tab combining all previous charts and plots. I will change slightly the existing charts arrangement in the dashboard.
 - I will incorporate new chart types in this new dashboard version
 - Included pop-up tooltips containing daily confirmed, recovered and death cases by country
+
+Added legend to leaflet map
+![00_Added_legend_to_leaflet_map](https://github.com/user-attachments/assets/2b55ac43-f125-43e7-b785-a4eca01fa4b8)
+
+Included new dynamic **plotly** bar charts in a tabbed container using tabsetPanel() function to display Confirmed, Recovered and Death covid cased by time
+![04_Plotly_interactive_charts_01](https://github.com/user-attachments/assets/24b1a55a-4502-42b4-a3de-da564722e0d2)
+
+![06_Tabbed_panels_terminal_screenshot](https://github.com/user-attachments/assets/1bfbea15-9501-4807-a710-6751bce86ba9)
+
+Overall design of this shiny app - Top section
+
+Bottom section displaying line chart cases by selected countries
+![05_Plotly_interactive_charts_05](https://github.com/user-attachments/assets/74468e9d-b15d-4031-b456-3f6fa7ffbc97)
+
