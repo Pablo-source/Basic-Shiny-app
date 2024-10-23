@@ -56,7 +56,7 @@ I have read the data directly into R with an ad hoc function DownloadCOVIDData()
 In **August 2024**, I introduced several re-design changes to the app. Imrpvpving its design and applying RAP principles to the project: 
 
 Back end:
--   Built new functions to download CSSEGIS data from original repo: https://github.com/CSSEGISandData/COVID-19
+-   Built new functions to download CSSEGIS data: (from original JHU CSSE repo: https://github.com/CSSEGISandData/COVID-19)
 https://github.com/Pablo-source/Basic-Shiny-app/blob/main/R/00_Initial_data_download.R
 -   From {tidygeocoder} package, used geo() function to conduct specific calls to the API to retrieve Lat and Long values. Using batches of 10 up to 50 countries to test the API response time.
 https://github.com/Pablo-source/Basic-Shiny-app/blob/main/Checks/API_Obtain_countries_Lat_Long.R 
