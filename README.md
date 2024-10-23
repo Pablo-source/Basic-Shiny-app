@@ -66,8 +66,7 @@ https://github.com/Pablo-source/Basic-Shiny-app/blob/main/Checks/API_Obtain_coun
 https://github.com/Pablo-source/Basic-Shiny-app/blob/main/Setup%20renv%20for%20this%20project.R
 
 Front end:
-- Re-designing Shiny app into a single tab combining all previous charts and plots. I will change slightly the existing charts arrangement in the dashboard.
-- I will incorporate new chart types in this new dashboard version
+- Shiny app designed into a single tab combining all previous charts and plots. I will change slightly the existing charts arrangement in the dashboard.
 - Included pop-up tooltips containing daily confirmed, recovered and death cases by country
 
 Added legend to leaflet map
