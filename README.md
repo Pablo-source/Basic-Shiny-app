@@ -79,7 +79,9 @@ Included new dynamic **plotly** bar charts in a tabbed container using tabsetPan
 ![06_Tabbed_panels_terminal_screenshot](https://github.com/user-attachments/assets/1bfbea15-9501-4807-a710-6751bce86ba9)
 
 Overall design of this shiny app - Top section
+![07_full_shiny_app_top](https://github.com/user-attachments/assets/37530e5e-408c-483d-a2bd-41e97d9dee84)
 
 Bottom section displaying line chart cases by selected countries
-![05_Plotly_interactive_charts_05](https://github.com/user-attachments/assets/74468e9d-b15d-4031-b456-3f6fa7ffbc97)
+![08_full_shiny_app_bottom](https://github.com/user-attachments/assets/ab363d43-df4f-4f0b-a00b-02332e0ed821)
+
 
