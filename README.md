@@ -57,11 +57,11 @@ In **August 2024**, I introduced several re-design changes to the app. Imrpvpvin
 
 Back end:
 -   Built new functions to download CSSEGIS data from original repo: https://github.com/CSSEGISandData/COVID-19
-
+https://github.com/Pablo-source/Basic-Shiny-app/blob/main/R/00_Initial_data_download.R
 -   From {tidygeocoder} package, used geo() function to conduct specific calls to the API to retrieve Lat and Long values. Using batches of 10 up to 50 countries to test the API response time.
-  
+https://github.com/Pablo-source/Basic-Shiny-app/blob/main/Checks/API_Obtain_countries_Lat_Long.R 
 -	Following RAP principles, applied **renv::init()** to initialise environment and also taken a snapshot of the project using **renv::snapshot()**. By creating the lockfile, we ensure all packages required for this project are available. These actions create a  project library directory, ensuring we have loaded the right packages and the right versions. 
-
+https://github.com/Pablo-source/Basic-Shiny-app/blob/main/Setup%20renv%20for%20this%20project.R
 
 Front end:
 - Re-designing Shiny app into a single tab combining all previous charts and plots. I will change slightly the existing charts arrangement in the dashboard.
