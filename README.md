@@ -33,6 +33,8 @@ In the next step when using **app_launch_TRIGGER.R** script, we will have all re
 3-3. Open “**app_launch_TRIGGER.R** script”
 - Then  press **"Source"** button in RStudio to trigger the Shiny app.
 
+This script triggers another script called "app_launch.R" containing runAPP() Shiny function to start the Shiny app.
+
 ## Data downloaded from Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE) repository
 
 Data for this app is produced by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE) for their 2019 Novel Coronavirus Visual Dashboard and Supported by ESRI Living Atlas Team and the Johns Hopkins University Applied Physics Lab (JHU APL).
