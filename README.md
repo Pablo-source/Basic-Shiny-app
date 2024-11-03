@@ -83,4 +83,4 @@ Overall design of this shiny app - Top section includiong animated leaflet map a
 Bottom section displaying line chart cases by selected countries
 ![08_full_shiny_app_bottom](https://github.com/user-attachments/assets/ab363d43-df4f-4f0b-a00b-02332e0ed821)
 
-
+Previos Iteration of this Shiny app (initial design): <https://github.com/Pablo-source/Shiny-app-using-COVID-data>
