@@ -18,7 +18,7 @@ To run this **Shiny-app-using-COVID-data** app locally, please follow these **th
 
 > **git clone https://github.com/Pablo-source/Basic-Shiny-app.git**
 
-Navigate to the cloned repo, then open Rproject by clicking on the **Shiny-app-using-COVID-data.Rproj** file. This will display the Shiny app files on your "Files" tab in RStudio.
+Navigate to the cloned repo, then open Rproject by clicking on the **Basic-Shiny-app.Rproj** file. This will display the Shiny app files on your "Files" tab in RStudio.
 
 2-3. Run **renv::restore()** in a new Rscript. The first time the app finshed running, I captured its final state using **renv::snapshot()**
 To ensure all required packages are loaded, we reinstall exact packages declared in the project lockfile renv.lock.
