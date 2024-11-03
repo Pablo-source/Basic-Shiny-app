@@ -16,7 +16,7 @@ To run this **Shiny-app-using-COVID-data** app locally, please follow these **th
 1-3. Clone **Shiny-app-using-COVID-data** repo using git on you IDE or your terminal using local Clone HTTPS option
 <https://github.com/Pablo-source/Basic-Shiny-app.git>
 
-> **git clone https://github.com/Pablo-source/Shiny-app-using-COVID-data.git**
+> **git clone https://github.com/Pablo-source/Basic-Shiny-app.git**
 
 Navigate to the cloned repo, then open Rproject by clicking on the **Shiny-app-using-COVID-data.Rproj** file. This will display the Shiny app files on your "Files" tab in RStudio.
 
